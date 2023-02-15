@@ -1,0 +1,19 @@
+/* MAIN LAYOUT */
+.main-layout {
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+}
+
+.main-layout>*:not(.full) {
+    grid-column: 2;
+}
+
+/* GALLERY LAYOUT */
+
+.gallery-layout {
+    background-color: gray;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto, 5vw);
+    grid-gap: 15px;
+}
