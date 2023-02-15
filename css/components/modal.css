@@ -1,0 +1,39 @@
+body.modal-open .modal-editor {
+    opacity: 1;
+    pointer-events: auto;
+    /* position: absolute; */
+}
+
+.modal-editor {
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.6s;
+    /* display: flex; */
+    box-shadow: -16px 9px 13px 11px #29292996;
+    /* flex-direction: column; */
+    /* padding: 50px; */
+    position: fixed;
+    /* justify-content: center;
+    align-items: center; */
+    width: 75vw;
+    height: 75vh;
+    border: #1d1d1d 1px solid;
+    background-color: white;
+}
+
+.modal-editor form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-editor form>* {
+    padding: 0.3rem;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}

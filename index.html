@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Gen</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="main-layout">
+    <div class="main-screen"></div>
+
+    <!-- MODAL MEME EDITOR -->
+    <div class="modal-editor">
+        <section class="editor-header">
+            <button class="close-button" onclick="toggleModal()">x</button>
+            <span>Create your MEME</span>
+        </section>
+        <canvas id="canvas" height="450" width="450"></canvas>
+        <form class='form-modal' onsubmit="event.preventDefault(); onDrawText(this)">
+            <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
+            <label for="txt">Enter a txt</label>
+            <input type="text" name="txt" id="txt" placeholder="txt" class="txt" />
+            <button class="draw-txt" onclick="drawText()">draw text</button>
+        </form>
+    </div>
+    <!-- NAV MENU -->
+    <header class="main-menu flex space-between align-center">
+        <div class="logo">MY-MEME-GEN</div>
+        <nav class="main-nav">
+            <ul class="main-menu flex clean-list">
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Memes</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <!-- HUMBURGER -->
+        <!-- <button type="button" onclick="toggleMenu()">☰</button> -->
+    </header>
+
+    <!-- GALLERY -->
+    <main class="main-content gallery-layout">
+        <figure class="gallery-item gallery-item--1">
+            <img src="imgs/meme-imgs (square)/1.jpg" class="gallert_img" alt="Image 1"
+                onclick="toggleModal(), onInit()">
+        </figure>
+        <figure class="gallery-item gallery-item--2">
+            <img src="imgs/meme-imgs (square)/2.jpg" class="gallert_img" alt="Image 2">
+        </figure>
+        <figure class="gallery-item gallery-item--3">
+            <img src="imgs/meme-imgs (square)/3.jpg" class="gallert_img" alt="Image 3">
+        </figure>
+        <figure class="gallery-item gallery-item--4">
+            <img src="imgs/meme-imgs (square)/4.jpg" class="gallert_img" alt="Image 4">
+        </figure>
+        <figure class="gallery-item gallery-item--5">
+            <img src="imgs/meme-imgs (square)/5.jpg" class="gallert_img" alt="Image 5">
+        </figure>
+    </main>
+</body>
+
+<!-- SCRIPTS -->
+<script src="JS/main.js"></script>
+<script src="JS/services/canvas.service.js"></script>
+<script src="JS/services/gallery.service.js"></script>
+<script src="JS/controllers/gallery.controller.js"></script>
+
+</html>
