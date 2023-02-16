@@ -2,20 +2,20 @@
 
 button {
 
-    background-color: var(--clr-2);
-    color: var(--clr-1);
+    background-color: var(--clrbase2);
+    color: var(--clr2);
     cursor: pointer;
-    border: 2px solid var(--clr-1);
+    border: 2px solid var(--clr3);
     font-size: 1em;
-    padding: 0.625em 1.625em;
-    
+    /* padding: 0.625em 1.625em; */
+
     position: relative;
 }
 
 
 button:hover {
-    color: var(--clrbase);
-    border: 2px solid var(--clrbase);
+    color: var(--clrbase1);
+    border: 2px solid var(--clr3);box-shadow: 0px 0px 0px 0px #29292996;
 }
 
 
@@ -23,6 +23,8 @@ button:hover {
 
 .btn-round {
     border-radius: 2em;
+    box-shadow: -1px 1px 13px 3px #29292996;
+
 }
 
 /* // Arrow */
@@ -39,4 +41,21 @@ button:hover {
     content: " →";
     position: absolute;
     right: 1em;
+}
+
+/* CLOSE BTN */
+.modal-editor .close-button {
+    /* margin-top: 42px; */
+    position: absolute;
+    top: 0;
+    left: 94%;
+    background-color: var(--clr0);
+    border: none;
+    font-size: 40px;
+    /* color: var(--clrbase2); */
+    cursor: pointer;
+}
+
+.btn-switchLine {
+    font-size: 1em;
 }

@@ -1,0 +1,21 @@
+.logo {
+    color: var(--clr0);
+    justify-self: start;
+    padding: .5em;
+    /* font-family: eurof55, serif; */
+    font-size: 1.2em;
+    letter-spacing: 0.35em;
+}
+
+.logo-footer {
+    color: var(--clr3);
+    /* font-family: eurof55, serif; */
+    font-size: 2.5em;
+    letter-spacing: -0.05em;
+}
+
+.gen {
+    color: var(--clrbase1);
+    font-size: 1.5em;
+    /* font-family: eurof55, serif; */
+}

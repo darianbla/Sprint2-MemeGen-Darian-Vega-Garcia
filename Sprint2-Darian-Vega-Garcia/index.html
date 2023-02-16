@@ -6,23 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme Gen</title>
+    <script src="https://kit.fontawesome.com/dc956d7af1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="main-layout">
+<body class="main-layout" onload="onInit()">
     <div class="main-screen"></div>
-    
+
     <!-- MODAL MEME EDITOR -->
-    <div class="modal">
-        <button class="close-button" onclick="toggleModal()">x</button>
-        <h1>Create your MEME</h1>
-        <form class='form-modal' onsubmit="toggleModal()">
-            <input type="submit" value="submit">
+    <div class="modal-editor">
+        <section class="editor-header">
+            <button class="close-button" onclick="offleModal()">x</button>
+            <span>Create your MEME</span>
+        </section>
+        <canvas id="canvas" height="450" width="450"></canvas>
+        <form class='form-modal' onsubmit="event.preventDefault()">
+            <!-- Txt: -->
+            <input type="text" id="txt" oninput="onTextInput(this.value)" placeholder="txt line" />
+            <!-- Color -->
+            <button class="btn-round ">
+                <input oninput="changeTxtColor(this.value)" type="color" value="white" id="color" />
+            </button>
+            <!-- Font Size: -->
+            <button onclick="changeFontSize(true)" class="increase btn-round">A+</button>
+            <button onclick="changeFontSize(false)" class="decrease btn-round ">A-</button>
+            <!-- Add Line Btn-->
+            <button class="btn btn-addLine btn-round " onclick="onAddLine()"><i class="fa-duotone fa-plus"></i></button>
+            <!-- Add switch Btn-->
+            <button class="btn-switchLine btn-round " onclick="onSwitchLine()"><i
+                    class="fa-solid fa-arrow-right-arrow-left fa-rotate-90"></i></button>
+            <!-- Delete Line Btn-->
+            <button class="btn-round "><i class="fa-solid fa-x"></i></button>
+            <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
         </form>
     </div>
     <!-- NAV MENU -->
-    <header class="main-menu flex space-between align-center">
-        <div class="logo">MY-MEME-GEN</div>
+    <div class="nav-bg"></div>
+
+    <header class="main-menu main-header flex space-between align-center">
+        <div class="logo">MY-MEME-<span class="gen">GEN<span \></div>
         <nav class="main-nav">
             <ul class="main-menu flex clean-list">
                 <li><a href="#">Gallery</a></li>
@@ -35,27 +58,29 @@
     </header>
 
     <!-- GALLERY -->
-    <main class="main-content gallery-layout" >
-        <figure class="gallery-item gallery-item--1">
-            <img src="imgs/meme-imgs (square)/1.jpg" class="gallert_img" alt="Image 1" onclick="toggleModal()">
-        </figure>
-        <figure class="gallery-item gallery-item--2">
-            <img src="imgs/meme-imgs (square)/2.jpg" class="gallert_img" alt="Image 2">
-        </figure>
-        <figure class="gallery-item gallery-item--3">
-            <img src="imgs/meme-imgs (square)/3.jpg" class="gallert_img" alt="Image 3">
-        </figure>
-        <figure class="gallery-item gallery-item--4">
-            <img src="imgs/meme-imgs (square)/4.jpg" class="gallert_img" alt="Image 4">
-        </figure>
-        <figure class="gallery-item gallery-item--5">
-            <img src="imgs/meme-imgs (square)/5.jpg" class="gallert_img" alt="Image 5">
-        </figure>
-    </main>
-</body>
+    <main class="gallery-container gallery-layout">
 
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer full">
+        <div class="footer-container flex space-between align-center">
+            <div class="logo">Blogin</div>
+            <small>© 2014 Blogin.com - All Rights Reserved - Find more free Templates at
+                Pixelhint.com</small>
+            <section class="social-links clean-list flex">
+                <a class="fa facebook" href="#"></a>
+                <a class="fa twitter" href="#"></a>
+                <a class="fa dribble" href="#"></a>
+                <a class="fa behance" href="#"></a>
+            </section>
+        </div>
+    </footer>
+</body>
 <!-- SCRIPTS -->
 <script src="JS/main.js"></script>
+<script src="JS/services/meme.service.js"></script>
+<script src="JS/controllers/meme.controller.js"></script>
 <script src="JS/services/gallery.service.js"></script>
 <script src="JS/controllers/gallery.controller.js"></script>
 
