@@ -1,22 +1,25 @@
 /* eurofurence */
 @font-face {
   font-family: eurofurence;
-  src: url(/fonts/eurofurence/eurof35.ttf);
+  src: url(css/fonts/eurofurence/eurof35.ttf);
 }
+
 /* lato-bold */
 @font-face {
-  font-family: lato-bold;
-  src: url(/fonts/lato/Lato-Bold.ttf);
+  font-family: ubuntu-regular;
+  src: url(css/fonts/Ubntu/Ubuntu-Regular.ttf);
 }
+
 /* lato-regular */
 @font-face {
   font-family: lato-regular;
-  src: url(/fonts/lato/Lato-Regular.ttf);
+  src: url(css/fonts/lato/Lato-Regular.ttf);
 }
+
 /* font awesome */
 @font-face {
   font-family: fa;
-  src: url(/fonts/fontAwesome/fa-brands-400.ttf);
+  src: url(css/fonts/fontAwesome/fa-brands-400.ttf);
 }
 
 .fa::before {

@@ -14,74 +14,161 @@
 <body class="main-layout" onload="onInit()">
     <div class="main-screen"></div>
 
-    <!-- MODAL MEME EDITOR -->
-    <div class="modal-editor">
-        <section class="editor-header">
-            <button class="close-button" onclick="offleModal()">x</button>
-            <span>Create your MEME</span>
-        </section>
-        <canvas id="canvas" height="450" width="450"></canvas>
-        <form class='form-modal' onsubmit="event.preventDefault()">
-            <!-- Txt: -->
-            <input type="text" id="txt" oninput="onTextInput(this.value)" placeholder="txt line" />
-            <!-- Color -->
-            <button class="btn-round ">
-                <input oninput="changeTxtColor(this.value)" type="color" value="white" id="color" />
-            </button>
-            <!-- Font Size: -->
-            <button onclick="changeFontSize(true)" class="increase btn-round">A+</button>
-            <button onclick="changeFontSize(false)" class="decrease btn-round ">A-</button>
-            <!-- Add Line Btn-->
-            <button class="btn btn-addLine btn-round " onclick="onAddLine()"><i class="fa-duotone fa-plus"></i></button>
-            <!-- Add switch Btn-->
-            <button class="btn-switchLine btn-round " onclick="onSwitchLine()"><i
-                    class="fa-solid fa-arrow-right-arrow-left fa-rotate-90"></i></button>
-            <!-- Delete Line Btn-->
-            <button class="btn-round "><i class="fa-solid fa-x"></i></button>
-            <a href="#" onclick="downloadCanvas(this)" download="">Download</a>
-        </form>
-    </div>
     <!-- NAV MENU -->
-    <div class="nav-bg"></div>
+    <header class="main-header full main-layout">
+        <section class="nav flex space-between align-center">
+            <div class="logo" onclick="window.location.reload()">MY-MEME-<span class="gen">GEN<span \></div>
+            <!-- HUMBURGER -->
+            <button class="btn btn-humburger">
+                <input id="toggle1" type="checkbox" class="toggle-menu" onclick="toggleMenu()" />
+                <label class="hamburger1" for="toggle1">
+                    <div class="top"></div>
+                    <div class="meat"></div>
+                    <div class="bottom"></div>
+                </label>
+            </button>
 
-    <header class="main-menu main-header flex space-between align-center">
-        <div class="logo">MY-MEME-<span class="gen">GEN<span \></div>
-        <nav class="main-nav">
-            <ul class="main-menu flex clean-list">
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Memes</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
-        <!-- HUMBURGER -->
-        <!-- <button type="button" onclick="toggleMenu()">☰</button> -->
+            <nav class="main-nav">
+                <ul class="main-menu flex clean-list">
+                    <li><a href="#" onclick="window.location.reload()">Gallery</a></li>
+                    <li><a href="#" onclick="showMemesGallery()">Memes</a></li>
+                    <li><a href="#" onclick="toggleModal()">About</a></li>
+                </ul>
+            </nav>
+        </section>
     </header>
 
-    <!-- GALLERY -->
-    <main class="gallery-container gallery-layout">
+    <!-- MODAL MEME EDITOR -->
+    <div class="modal-editor editor-layout">
+        <section class="editor-header">
+            <button class="btn close-btn" onclick="offleModal()">x</button>
+            <h1 class="h1-editor">Create your MEME</h1>
+        </section>
+        <div class="canvas-container">
+            <canvas id="canvas" height="450" width="450" onclick=" canvasClicked(event)"></canvas>
+        </div>
 
+        <section class="editor-main">
+            <form class='form-modal' onsubmit="event.preventDefault()">
+                <div class="input-mng">
+                    <!-- Txt: -->
+                    <input type="text" id="txt" oninput="onTextInput(this.value)" placeholder="txt line" />
+                </div>
+                <div class="line-mng  flex space-between">
+                    <!-- Align lines -->
+                    <button title="align-left" type="button" class="btn btn-round text-aling-left"
+                        onclick="onAlign(0)"><i class="fa-solid fa-outdent"></i></button>
+                    <button title="align-center" type="button" class="btn btn-round text-aling-center"
+                        onclick="onAlign(1)"><i class="fa-solid fa-align-center"></i></button>
+                    <button title="align-right" type="button" class="btn btn-round text-aling-right"
+                        onclick="onAlign(2)"><i class="fa-solid fa-indent"></i></button>
+                    <!-- Add Line Btn-->
+                    <button class="btn btn-addLine btn-round " onclick="onAddLine()" title="add Line"><i
+                            class="fa-duotone fa-plus"></i></button>
+
+                    <!-- Add switch Btn-->
+                    <button class="btn btn-switchLine btn-round " onclick="onSwitchLine()" title="switch Line"><i
+                            class="fa-solid fa-arrow-right-arrow-left fa-rotate-90"></i></button>
+
+                    <!-- Delete Line Btn-->
+                    <button onclick="onDeleteLine()" class="btn btn-round " title="delete Line"><i
+                            class="fa-solid fa-x"></i></button>
+                </div>
+                <div class="text-mng flex space-between">
+
+                    <!-- Color -->
+                    <button class="btn btn-round ">
+                        <label for="color"><i class="fa-solid fa-palette" title="change color"></i></label> 
+                        <input oninput="changeTxtColor(this.value)" type="color" value="white" id="color" />
+                    </button>
+
+                    <!-- Font Size: -->
+                    <button onclick="changeFontSize(true)" class="btn increase btn-round"
+                        title="increase size">A+</button>
+                    <button onclick="changeFontSize(false)" class="btn decrease btn-round "
+                        title="decrease size">A-</button>
+
+                    <!-- FONT STYLE -->
+                    <label for="font-style">Font:
+                        <select id="font-style" class="btn btn-round fonts" onchange="onChangeFont()"
+                            title="Change Font">
+                            <option style="font-family: Ariel" value="Ariel">Ariel</option>
+                            <option style="font-family: Impact" value="Impact">Impact</option>
+                            <option style="font-family: Times New Roman;" value="'Times New Roman'">Times New Roman
+                            </option>
+                            <option style="font-family: Ubuntu" value="ubuntu-regular">Ubuntu</option>
+                        </select>
+                    </label>
+                </div>
+
+                <div class="social-mng flex space-between">
+
+                    <!-- DOWNLOAD -->
+                    <button class="btn btn-round" onclick="downloadCanvas(this)" download="my-img.jpg"
+                        title="Download Meme">Download <i class="fa-solid fa-download"></i></button>
+
+                    <!-- SAVE MEME -->
+                    <button class="btn btn-round" onclick="onSaveMeme()" title="Save Meme">SAVE <i
+                            class="fa-solid fa-floppy-disk"></i></button>
+
+                    <!-- Facebook upload btn -->
+                    <button class="btn btn-round" onclick="onUploadImg()" title="share to FaceBook">Upload to <i
+                            class="fa-brands fa-facebook"></i></button>
+
+                    <!-- UPLOAD -->
+                    <input type="file" class="file-input btn btn-round" name="image" onchange="onImgInput(event)" />
+                </div>
+        </section>
+
+        </form>
+    </div>
+
+    <!-- THNAK YOU MODAL -->
+    <div class="modal">
+        <button class="btn close-btn" onclick="toggleModal()">x</button>
+        <h1>Make more with you Memes</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum perspiciatis maxime magni quos quia cumque
+            illum nihil rerum dolore veniam voluptatibus quasi, autem, dignissimos amet doloribus voluptatem recusandae,
+            quas iusto.
+        </p>
+        <form class='form-modal' onsubmit="toggleModal()">
+            <label for="email">Join us NOW!</label>
+            <input type="email" class="email" name="email" placeholder="youremail@gmail.com">
+            <button class="btn btn-round" type="submit" value="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- GALLERY -->
+    <main class="gallery-container gallery-layout align-center">
+
+    </main>
+
+    <!-- MEMES GALLERY -->
+    <main class="memes-gallery">
+        <h2>Best Memes</h2>
+        <section class="memes-gallery-container ">
+        </section>
     </main>
 
     <!-- FOOTER -->
     <footer class="main-footer full">
         <div class="footer-container flex space-between align-center">
-            <div class="logo">Blogin</div>
-            <small>© 2014 Blogin.com - All Rights Reserved - Find more free Templates at
-                Pixelhint.com</small>
-            <section class="social-links clean-list flex">
-                <a class="fa facebook" href="#"></a>
-                <a class="fa twitter" href="#"></a>
-                <a class="fa dribble" href="#"></a>
-                <a class="fa behance" href="#"></a>
-            </section>
+            <div class="logo">MY-MEME-<span class="gen">GEN<span \></div>
+            <small>© 2023 Memegen.com - All Rights Reserved - Darian-Vega-Garcia</small>
         </div>
     </footer>
+    <!-- SCRIPTS -->
+    <script src="JS/util/util.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/services/meme.service.js"></script>
+    <script src="JS/controllers/meme.controller.js"></script>
+    <script src="JS/services/gallery.service.js"></script>
+    <script src="JS/controllers/meme.gallery.controller.js"></script>
+    <script src="JS/controllers/gallery.controller.js"></script>
+    <script src="JS/controllers/download.js"></script>
+    <script src="JS/controllers/upload.js"></script>
+    <script src="JS/controllers/sharing-on-facebook.js"></script>
+
 </body>
-<!-- SCRIPTS -->
-<script src="JS/main.js"></script>
-<script src="JS/services/meme.service.js"></script>
-<script src="JS/controllers/meme.controller.js"></script>
-<script src="JS/services/gallery.service.js"></script>
-<script src="JS/controllers/gallery.controller.js"></script>
 
 </html>

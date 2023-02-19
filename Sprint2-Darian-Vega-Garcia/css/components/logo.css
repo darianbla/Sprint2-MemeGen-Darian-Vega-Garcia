@@ -1,7 +1,8 @@
 .logo {
+    cursor: pointer;
     color: var(--clr0);
-    justify-self: start;
-    padding: .5em;
+    /* justify-self: start; */
+    
     /* font-family: eurof55, serif; */
     font-size: 1.2em;
     letter-spacing: 0.35em;
@@ -15,7 +16,10 @@
 }
 
 .gen {
+    position: relative;
+    top: 0.15em;
     color: var(--clrbase1);
     font-size: 1.5em;
+
     /* font-family: eurof55, serif; */
 }

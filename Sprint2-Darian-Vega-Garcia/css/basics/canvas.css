@@ -1,5 +1,5 @@
 canvas {
     border: 1px solid black;
     display: block;
-    margin: 0 2em;
+    /* box-shadow: -2px 2px 2px 1px #29292996; */
 }
