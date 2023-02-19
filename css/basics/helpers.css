@@ -15,7 +15,9 @@
 /* grid helper */
 .grid {
     display: grid;
-
+    grid-template-columns: 1fr 2fr;
+    justify-items: end;
+    align-items: center;
 }
 
 
@@ -25,4 +27,8 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+
+.hide {
+    display: none;
 }

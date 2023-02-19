@@ -1,0 +1,20 @@
+.footer-container {
+    flex-direction: column;
+    margin-inline-end: 60px;
+    margin-inline-start: 60px;
+
+  }
+  .main-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--clrbase2);
+  }
+
+  .main-footer .footer-container > * {
+    margin-block-end: .5rem;
+  }
+ 
+  .main-footer small{
+    color: var(--clrbase1);
+  }

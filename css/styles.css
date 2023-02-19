@@ -4,6 +4,7 @@
 
 
 /* BASICS */
+@import 'basics/animations.css';
 @import 'basics/base.css';
 @import 'basics/helpers.css';
 @import 'basics/layout.css';
@@ -11,8 +12,12 @@
 @import 'basics/canvas.css';
 
 /* COMPONENTS */
-
 @import 'components/header.css';
+@import 'components/gallery.css';
 @import 'components/logo.css';
 @import 'components/screen.css';
 @import 'components/modal.css';
+@import 'components/footer.css';
+
+/* MEDIA QUERRYS */
+@import 'setup/mq.css';
