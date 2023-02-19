@@ -43,8 +43,8 @@
 /* CLOSE BTN */
 .close-btn {
   position: absolute;
-  top: 0;
-  left: 94%;
+  top: -0.5%;
+  left: 92%;
   background-color: var(--clr0);
   color: var(--clrbase2);
   border: none;
