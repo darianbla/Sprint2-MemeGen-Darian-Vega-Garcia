@@ -135,6 +135,11 @@
     .modal-editor .form-modal {
         grid-gap: 2em;
     }
+
+    #canvas {
+        height: 400px;
+        width: 400px;
+    }
 }
 
 @media (min-width: 590px) {
